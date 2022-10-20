@@ -143,7 +143,7 @@ body.active {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: hsl(0, 0%, 80%);
+  background-color: var(--gold);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -332,13 +332,13 @@ body.active {
     background-image: url(/images/serinti2.jpg);
   }
   60% {
-    background-image: url(/images/serenti23.jpg);
+    background-image: url(/images/serinti1.jpg);
   }
   80% {
-    background-image: url(/images/serenti25.jpg);
+    background-image: url(/images/serinti2.jpg);
   }
   100% {
-    background-image: url(/images/serenti24.jpg);
+    background-image: url(/images/serinti4.jpg);
   }
 }
 
@@ -611,6 +611,7 @@ article {
   font-weight: 200;
   margin-top: -5rem;
   margin-bottom: 5rem;
+  font-weight: 500;
 }
 
 .main-team {
@@ -623,6 +624,7 @@ article {
   font-weight: 200;
   padding-top: 2rem;
   margin-bottom: 5rem;
+  font-weight: 500;
 }
 
 .the-team {
@@ -633,6 +635,8 @@ article {
   display: flex;
   flex-direction: column-reverse;
 }
+
+ 
 /* 
 .service-text {
 
