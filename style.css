@@ -638,8 +638,8 @@ article {
 
  
 
-/* .service-text {
-} */
+.service-text {
+line-height: 4rem;}
 
 .truncate {
   width: 330px;
