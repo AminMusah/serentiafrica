@@ -637,11 +637,16 @@ article {
 }
 
  
-/* 
-.service-text {
 
+/* .service-text {
 } */
 
+.truncate {
+  width: 330px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 /*-----------------------------------*\
   #MENU
 \*-----------------------------------*/
@@ -995,8 +1000,17 @@ time {
 }
 
 .copyright {
+  width: 100%;
   text-align: center;
   font-size: var(--fs-5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#year {
+  padding: 0 5px;
 }
 
 /* contact */
