@@ -312,7 +312,7 @@ body.active {
 } */
 
 .heroes {
-  background-image: url(/images/serinti2.jpg);
+  background-image: url(/images/photo_6034830961490902262_y.jpg);
   animation: animate  ease-in-out alternate-reverse 120s infinite forwards;
   animation-play-state: running;
   background-position: center;
@@ -323,22 +323,22 @@ body.active {
 
 @keyframes animate {
   0% {
-    background-image: url(/images/serinti1.jpg);
+    background-image: url(/images/photo_6034830961490902262_y.jpg);
   }
   20% {
-    background-image: url(/images/serinti4.jpg);
+    background-image: url(/images/photo_6034830961490902260_y.jpg);
   }
   40% {
-    background-image: url(/images/serinti2.jpg);
+    background-image: url(/images/photo_6034830961490902261_y.jpg);
   }
   60% {
-    background-image: url(/images/serinti1.jpg);
+    background-image: url(/images/photo_6034830961490902259_y.jpg);
   }
   80% {
-    background-image: url(/images/serinti2.jpg);
+    background-image: url(/images/photo_6034830961490902253_y.jpg);
   }
   100% {
-    background-image: url(/images/serinti4.jpg);
+    background-image: url(/images/photo_6034830961490902253_y.jpg);
   }
 }
 
@@ -1177,6 +1177,13 @@ input[type="submit"]:hover {
 
 .email-field::placeholder {
   color: inherit;
+}
+
+.portfolio-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 
