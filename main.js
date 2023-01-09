@@ -1,6 +1,11 @@
 'use strict';
 
 
+const tabs = document.querySelectorAll(".tab-btn");
+const content = document.querySelectorAll(".tab-content");
+const mainTabs = document.querySelectorAll(".main-tab-content");
+const mainContent = document.querySelectorAll(".main-tab-content");
+
 
 // add event on multiple elements
 
@@ -81,6 +86,40 @@ window.addEventListener("scroll", revealOnScroll);
 
 revealOnScroll();
 
+//tabs
+
+tabs.forEach((tab, index) => {
+  
+  tab.addEventListener("click", () => {
+    tab.classList.remove("active");
+    content.forEach((contents) => {
+      contents.classList.remove("active-content");
+    });
+
+    content[index].classList.add("active-content");
+    tabs[index].classList.add("active");
+
+  });
+
+});
+
+
+mainTabs.forEach((tab, index) => {
+
+  tab.addEventListener("click", () => {
+    tab.classList.remove("active");
+    mainContent.forEach((contents) => {
+      contents.classList.remove("main-content-active");
+    });
+
+    mainContent[index].classList.add("main-content-active");
+    tabs[index].classList.add("active");
+
+  });
+
+});
+
+//year
 const year = document.getElementById("year");
 const currentYear = new Date();
 year.innerHTML = currentYear.getFullYear()
