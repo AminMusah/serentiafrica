@@ -3,7 +3,7 @@
 
 const tabs = document.querySelectorAll(".tab-btn");
 const content = document.querySelectorAll(".tab-content");
-const mainTabs = document.querySelectorAll(".main-tab-content");
+const mainTabs = document.querySelectorAll(".main-tab-btn");
 const mainContent = document.querySelectorAll(".main-tab-content");
 
 
@@ -89,9 +89,9 @@ revealOnScroll();
 //tabs
 
 tabs.forEach((tab, index) => {
+  tabs[index].classList.remove("active");
   
   tab.addEventListener("click", () => {
-    tab.classList.remove("active");
     content.forEach((contents) => {
       contents.classList.remove("active-content");
     });
@@ -109,10 +109,10 @@ mainTabs.forEach((tab, index) => {
   tab.addEventListener("click", () => {
     tab.classList.remove("active");
     mainContent.forEach((contents) => {
-      contents.classList.remove("main-content-active");
+      contents.classList.remove("main-active-content");
     });
 
-    mainContent[index].classList.add("main-content-active");
+    mainContent[index].classList.add("main-active-content");
     tabs[index].classList.add("active");
 
   });

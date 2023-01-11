@@ -313,7 +313,7 @@ body.active {
 
 .heroes {
   background-image: url(/images/photo_6034830961490902262_y.jpg);
-  animation: animate  ease-in-out alternate-reverse 120s infinite forwards;
+  animation: animate ease-in-out alternate-reverse 120s infinite forwards;
   animation-play-state: running;
   background-position: center;
   background-size: cover;
@@ -636,10 +636,9 @@ article {
   flex-direction: column-reverse;
 }
 
- 
-
 .service-text {
-line-height: 4rem;}
+  line-height: 4rem;
+}
 
 .truncate {
   width: 330px;
@@ -1103,7 +1102,7 @@ input[type="submit"]:hover {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 0 5rem 5rem ;
+  padding: 0 5rem 5rem;
   color: var(--white);
 }
 
@@ -1150,7 +1149,6 @@ input[type="submit"]:hover {
 .newsletter-form {
   padding: 2rem 0 0 0;
   width: 100%;
-  
 }
 
 .email-field {
@@ -1186,29 +1184,36 @@ input[type="submit"]:hover {
   flex-wrap: wrap;
 }
 
-
 /* tabs */
 
 .main-filter-btn {
   color: var(--black);
-  font-size: var(--fs-9);
+  font-size: var(--fs-2);
   font-weight: var(--fw-500);
   padding: 20px 50px;
-  border-radius: var(--radius-5);
+  /* border-radius: var(--radius-5); */
   transition: var(--transition-1);
 }
 
-.main-filter-btn:is(:hover, :focus) { color: var(--black); }
+.main-filter-btn:is(:hover, :focus) {
+  color: var(--gold);
+}
+
+.main-filter-btn:is( :focus) {
+  border-bottom: 2px solid var(--light-gray);
+}
 
 .main-filter-btn.active {
-  background-color: var(--gold);
-  color: var(--black);
+  /* background-color: var(--gold); */
+  border-bottom: 2px solid var(--light-gray);
+  color: var(--gold);
   box-shadow: var(--shadow-4);
 }
 
 .main-tab-btn.active {
-  background-color: var(--gold);
-  color: var(--black);
+  border-bottom: 2px solid var(--light-gray);
+  /* background-color: var(--gold); */
+  color: var(--gold);
   box-shadow: var(--shadow-4);
 }
 
@@ -1219,7 +1224,6 @@ input[type="submit"]:hover {
 .main-active-content {
   display: block;
 }
-
 
 .filter-list {
   max-width: 90%;
@@ -1240,9 +1244,11 @@ input[type="submit"]:hover {
   transition: var(--transition-1);
 }
 
-.filter-btn:is(:hover, :focus) { color: var(--black); }
+.filter-btn:is(:hover, :focus) {
+  color: var(--black);
+}
 
-.filter-btn.active {
+.filter-btn-active {
   background-color: var(--black);
   color: var(--gold);
   box-shadow: var(--shadow-4);
@@ -1363,9 +1369,6 @@ input[type="submit"]:hover {
   .blog-card .card-meta-text {
     --fs-5: 1.6rem;
   }
-
-  
- 
 
   /**
    * FOOTER
@@ -1548,21 +1551,18 @@ input[type="submit"]:hover {
     gap: 25px;
   }
 
-   /**
+  /**
    * newsletter
    */
 
-   .newsletter {
+  .newsletter {
     flex-direction: row;
   }
 
   .newsletter-banner {
     max-width: max-content;
     display: block;
-
   }
-
- 
 
   /**
    * CTA
