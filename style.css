@@ -115,7 +115,7 @@ html {
 
 body {
   background-color: var(--black);
-  color: var(--white_a60);
+  /* color: var(--white_a60); */
   font-size: 1.6rem;
   line-height: 1.75;
   overflow-x: hidden;
@@ -844,6 +844,10 @@ article {
   overflow: hidden;
   width: 300px;
   margin: 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .blogcard .blog-card-banner img {
@@ -858,6 +862,15 @@ article {
 
 .blogcard a {
   color: var(--black);
+}
+
+.blogcontent {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .blogcontent-top {
@@ -889,6 +902,10 @@ article {
 time {
   color: var(--black);
   padding-right: 1rem;
+}
+
+time {
+  font-size: 12px;
 }
 
 .blogcontent-bottom {
@@ -1199,7 +1216,7 @@ input[type="submit"]:hover {
   color: var(--gold);
 }
 
-.main-filter-btn:is( :focus) {
+.main-filter-btn:is(:focus) {
   border-bottom: 2px solid var(--light-gray);
 }
 
@@ -1266,6 +1283,150 @@ input[type="submit"]:hover {
 
 .active-content {
   display: flex;
+}
+
+.post-hero {
+  width: 100%;
+  /* min-height: 70vh; */
+  background: var(--camel);
+  padding: 30px;
+}
+
+.post-intro {
+  padding-top: 45px;
+  text-align: center;
+  width: 60%;
+  margin: auto;
+  /* background: rebeccapurple; */
+}
+
+.post-intro h1 {
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 44px;
+  text-transform: capitalize;
+  color: #ffffff;
+  margin-top: 42px;
+}
+.post-intro p {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 32px;
+  text-align: center;
+  text-transform: capitalize;
+  color: #bebebe;
+  margin-top: 32px;
+}
+.post-media {
+  position: relative;
+  top: -80px;
+  margin: auto;
+  text-align: center;
+  background: whitesmoke;
+  /* z-index: 3; */
+  height: 600px;
+  width: 70%;
+  /* aspect-ratio: 2/2; */
+}
+.post-media img,
+.post-media iframe {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.post-content {
+  width: 70%;
+  margin: 30px auto 0;
+}
+.post-author-info {
+  display: flex;
+  align-items: center;
+}
+
+.info-text {
+  margin-left: 15px;
+}
+.info-text img {
+  height: 75px;
+  width: 75px;
+  border-radius: 75px;
+  object-fit: cover;
+}
+.info-text .author-name {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: #061c3d;
+}
+.info-text .read-duration {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #42526b;
+  margin-top: 5px;
+}
+.post-content .post-body {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 35px;
+  color: rgba(0, 0, 0, 0.6);
+  margin: 40px 0;
+  padding: 20px;
+}
+
+
+.spinner {
+  margin-top: 50px;
+   width: 100px;
+   height: 100px;
+   border-radius: 50%;
+   background: radial-gradient(farthest-side,#474bff 94%,#0000) top/11.5px 11.5px no-repeat,
+          conic-gradient(#0000 30%,#474bff);
+   -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 11.5px),#000 0);
+   animation: spinner-c7wet2 1s infinite linear;
+}
+
+@keyframes spinner-c7wet2 {
+   100% {
+      transform: rotate(1turn);
+   }
+}
+
+.error-content {
+  padding-top: 45px;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.error-content p {
+margin: 50px;
+font-size: var(--fs-2);
+}
+
+.error-content a {
+  background-color: var(--camel);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  max-width: max-content;
+  padding: 18px 20px;
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1;
+  border-radius: var(--radius-5);
+  transition: var(--transition-1);
+}
+
+
+.singleBlog {
+
 }
 
 /* MEDIA QUERIES */
@@ -1645,5 +1806,44 @@ input[type="submit"]:hover {
     width: 200px;
     bottom: 100px;
     right: -20px;
+  }
+
+  .post-hero{
+    min-height: 40vh;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .post-hero {
+    width: 100%;
+    /* min-height: 70vh; */
+  }
+  .post-intro {
+    padding-top: 45px;
+    text-align: center;
+    width: 85%;
+    margin: auto;
+    /* background: rebeccapurple; */
+  }
+  .post-media {
+    top: 20px;
+    height: 550px;
+    width: 85%;
+  }
+  .post-content {
+    width: 80%;
+    margin: 50px auto 0;
+  }
+}
+@media screen and (max-width: 800px) {
+  .post-media {
+    height: 250px;
+    width: 95%;
+  }
+  .post-intro h1 {
+    font-size: 25px;
+  }
+  .post-intro p {
+    font-size: 16px;
   }
 }
