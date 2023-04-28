@@ -900,59 +900,96 @@ require("dotenv").config();
 
 const client = contentful.createClient({
   space: "ev9chkm2wvy8",
-  accessToken: "hIh6eBlTW220mJZAKIBW_3PT804Y2hcV5gsdehBxSjQ",
+  accessToken: "m7J1aVQCNPOMSnG1IWmd-_oUPS0uIJ9FTzzpUHcCUXg",
 });
 
 const container = document.querySelector(".blog-content");
+
+{
+  /* <img
+src="${item.fields.image.fields.file.url}"
+alt="${item.fields.title}"
+class="w-100"
+/>
+</figure>
+
+<div class="blogcontent">
+<div class="blogcontent-top">
+<a href="#" class="card-meta-link">
+  <i class="ri-user-fill"></i>
+  <span>by: ${item.fields.author || 'Admin'}</span>
+</a>
+
+<a href="#" class="card-meta-link">
+  <i class="ri-price-tag-3-fill"></i>
+  <span>${item.fields.service || 'Real estate'}</span>
+</a>
+</div>
+<h3 class="h3 blogtitle">
+<a href="#">${item.fields.title}</a>
+</h3>
+<div class="blogcontent-bottom">
+<div class="publish-date">
+  <i class="ri-calendar-todo-fill"></i>
+  <time datetime="${new Date(
+    item.sys.createdAt
+  ).toLocaleString()}">${new Date(
+item.sys.createdAt
+).toLocaleString()}</time>
+</div>
+
+<a href="#" class="read-more-btn" data-post-id="${
+  item.sys.id
+}">Read More</a> */
+}
 
 client
   .getEntries({
     content_type: "blog",
   })
   .then((entries) => {
+    console.log(entries);
     const html = entries.items
       .map(
         (item) => `
-    <div class="blogcard">
-              <figure class="blog-card-banner">
-                <img
-                  src="${item.fields.image.fields.file.url}"
-                  alt="${item.fields.title}"
-                  class="w-100"
-                />
-              </figure>
+        <div class="blogcard">
+        <figure class="blog-card-banner" data-reveal>
+          <img
+            src="${item.fields.title}"
+            alt="${item.fields.image.fields.file.url}"
+            class="w-100"
+          />
+        </figure>
 
-              <div class="blogcontent">
-                <div class="blogcontent-top">
-                  <a href="#" class="card-meta-link">
-                    <i class="ri-user-fill"></i>
-                    <span>by: ${item.fields.author || 'Admin'}</span>
-                  </a>
+        <div class="blogcontent">
+          <div class="blogcontent-top">
+            <a href="#" class="card-meta-link">
+              <i class="ri-user-fill"></i>
+              <span>by: ${item.fields.author || "Admin"}</span>
+            </a>
 
-                  <a href="#" class="card-meta-link">
-                    <i class="ri-price-tag-3-fill"></i>
-                    <span>${item.fields.service || 'Real estate'}</span>
-                  </a>
-                </div>
-                <h3 class="h3 blogtitle">
-                  <a href="#">${item.fields.title}</a>
-                </h3>
-                <div class="blogcontent-bottom">
-                  <div class="publish-date">
-                    <i class="ri-calendar-todo-fill"></i>
-                    <time datetime="${new Date(
-                      item.sys.createdAt
-                    ).toLocaleString()}">${new Date(
+            <a href="#" class="card-meta-link">
+              <i class="ri-price-tag-3-fill"></i>
+              <span>${item.fields.service || "Real estate"}</span>
+            </a>
+          </div>
+          <h3 class="h3 blogtitle">
+            <a href="#">${item.fields.title}</a>
+          </h3>
+          <div class="blogcontent-bottom">
+            <div class="publish-date">
+              <i class="ri-calendar-todo-fill"></i>
+              <time datetime="${new Date(
+                item.sys.createdAt
+              ).toLocaleString()}">${new Date(
           item.sys.createdAt
         ).toLocaleString()}</time>
-                  </div>
-
-                  <a href="#" class="read-more-btn" data-post-id="${
-                    item.sys.id
-                  }">Read More</a>
-                </div>
-              </div>
             </div>
+
+            <a href="#" class="read-more-btn">Read More</a>
+          </div>
+        </div>
+      </div>
   `
       )
       .join(" ");
@@ -960,7 +997,7 @@ client
   })
   .catch((error) => {
     console.log(error);
-    if(error) {
+    if (error) {
       container.innerHTML = `  
       <div  class="not-found">
         <div class="error-content">
@@ -977,7 +1014,6 @@ client
         </div>
       </div>`;
     }
-  
   });
 
 const singleBlog = `<header class="header">
@@ -1064,14 +1100,17 @@ container.addEventListener("click", (event) => {
           content_type: "blog",
         })
         .then((entries) => {
-          const hello = entries.items
-            .filter((item) => {
-              return postId === item.sys.id;
-            })
-          document.body.querySelector('.single-blog-h1').innerHTML = hello[0].fields.title
-          document.body.querySelector('.post-body').innerHTML = hello[0].fields.content.content[0].content[0].value
-          document.body.querySelector('.single-post-banner').src = hello[0].fields.image.fields.file.url          
-          document.body.querySelector('.author-name').innerHTML = hello[0].fields.author || 'Admin'
+          const hello = entries.items.filter((item) => {
+            return postId === item.sys.id;
+          });
+          document.body.querySelector(".single-blog-h1").innerHTML =
+            hello[0].fields.title;
+          document.body.querySelector(".post-body").innerHTML =
+            hello[0].fields.content.content[0].content[0].value;
+          document.body.querySelector(".single-post-banner").src =
+            hello[0].fields.image.fields.file.url;
+          document.body.querySelector(".author-name").innerHTML =
+            hello[0].fields.author || "Admin";
         })
         .catch((error) => {
           console.log(error);
