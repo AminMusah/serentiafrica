@@ -8,7 +8,6 @@ import Loader from "../components/Loader";
 function Blog() {
   const [error, setError] = useState(false);
   const [blog, setBlog] = useState([]);
-  const [notFound, setNotFound] = useState(false);
   const [loading, setLoading] = useState(false);
   const [image, setImage] = useState("");
 
@@ -25,19 +24,10 @@ function Blog() {
             content_type: "blog",
           })
           .then((entries) => {
-            console.log(entries.items);
             setBlog(entries.items);
-            // let item = blog.map((item) => {
-            //   setImage(item.fields.image.fields.file.url);
-            //   console.log(item.fields.image.fields.file.url);
-            //   return item;
-            // });
-            // console.log(item);
-            // console.log(image);
             setLoading(false);
           });
       } catch (error) {
-        console.log(error);
         setError(true);
         error ? setLoading(false) : "";
       }
@@ -119,7 +109,7 @@ function Blog() {
                   );
                 })
               )}
-              {/* {error ? (
+              {error && !loading ? (
                 <div className="not-found">
                   <div className="error-content">
                     <p>{error} :(</p>
@@ -128,8 +118,8 @@ function Blog() {
                 </div>
               ) : (
                 ""
-              )} */}
-              {blog.length < 0 ? (
+              )}
+              {blog.length < 1 && !loading && !error ? (
                 <div className="not-found">
                   <div className="error-content">
                     <p>Oopss...Blog Post Not Found :(</p>

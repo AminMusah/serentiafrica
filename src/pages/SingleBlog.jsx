@@ -25,7 +25,6 @@ function SingleBlog() {
             content_type: "blog",
           })
           .then((entries) => {
-            console.log(entries.items);
             setBlog(entries.items);
 
             let item = entries.items.find((item) => {
@@ -36,11 +35,8 @@ function SingleBlog() {
             setBody(item.fields.content.content[0].content[0].value);
             setAuthor(item.fields.author);
             setImage(item.fields.image.fields.file.url);
-            console.log(item, image);
           });
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
     }
     getEntries();
   }, [image]);
