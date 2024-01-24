@@ -186,9 +186,9 @@ function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <p className="copyright">
+          <p className="copyright" style={{color: "#fff"}}>
             <span>Copyright ©</span>
-            <span id="year"></span>
+            <span id="year">{new Date().getFullYear()}</span>
             <span> Serenti Africa. All Rights Reserved.</span>
           </p>
         </div>
